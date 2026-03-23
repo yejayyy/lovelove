@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Anniversary ❤️</title>
   <style>
     body {
@@ -13,20 +14,23 @@
     }
 
     .container {
-      padding: 50px 20px;
+      padding: 40px 15px;
+      max-width: 900px;
+      margin: auto;
     }
 
-    h1 { font-size: 3em; margin-bottom: 10px; }
-    h2 { font-size: 1.5em; margin-bottom: 20px; }
+    h1 { font-size: clamp(2em, 5vw, 3em); margin-bottom: 10px; }
+    h2 { font-size: clamp(1.2em, 3vw, 1.5em); margin-bottom: 20px; }
 
     p {
-      font-size: 1.3em;
-      max-width: 600px;
+      font-size: clamp(1em, 2.5vw, 1.3em);
+      max-width: 700px;
       margin: 0 auto 20px;
+      line-height: 1.6;
     }
 
     .heart {
-      font-size: 50px;
+      font-size: clamp(40px, 8vw, 60px);
       animation: beat 1s infinite;
     }
 
@@ -37,42 +41,56 @@
 
     button {
       padding: 12px 25px;
-      font-size: 1em;
+      font-size: clamp(0.9em, 2.5vw, 1em);
       border: none;
       border-radius: 25px;
       background: #fff;
-      color: #99d8ff;
+      color: #1f97ff;
       cursor: pointer;
       transition: 0.3s;
       margin: 10px;
     }
 
     button:hover {
-      background: #99d8ff;
+      background: #1f97ff;
       color: #fff;
     }
 
-    .hidden { display: none; margin-top: 20px; font-size: 1.2em; }
+    .hidden { display: none; margin-top: 20px; }
 
-    .timer { font-size: 1.2em; margin-top: 15px; }
+    .timer { font-size: clamp(1em, 2.5vw, 1.2em); margin-top: 15px; }
 
     /* SLIDESHOW */
     .slideshow {
       position: relative;
-      max-width: 300px;
+      width: 100%;
+      max-width: 400px;
       margin: 20px auto;
     }
 
     .slide {
       display: none;
       width: 100%;
+      height: auto;
       border-radius: 15px;
+      object-fit: cover;
     }
 
     .active { display: block; }
 
     .controls {
       margin-top: 10px;
+    }
+
+    /* DESKTOP ENHANCEMENT */
+    @media (min-width: 768px) {
+      .container {
+        padding: 60px 20px;
+      }
+
+      .slideshow {
+        max-width: 500px;
+      }
     }
   </style>
 </head>
@@ -95,14 +113,9 @@
     <div id="surprise" class="hidden">
       <p>
        hi lovieeee🥺 imissyouuuu 🥺 misss na misss taka na sobraaaa dawa nahiling taka palang huhuhu happy monthsarry este happy 2nd anniversary lovieeeeeee ko iknow napapagal ika sako saka na iirita pero oks lang pasalihon lang me hehehe want ko saaga lovelovebann us ahh monthsarry taman and want ko sako kalang iloveyouuuu sobraaa aram mo yan and want ko mag enjoy us no more war lovieeee ahhh MWUAAAAAA MWUAAAAA ILOVEYOUUUU ALWAYSSS MYLOVIEEEE MY POMPOM 🥺🫶 sorry po ta binadtrip taka minsan heheheh sorry nasuya taka nanaman po loveloveeee subago iloveyouuuu 🥺 and kang naka aging aldaw iniwal mo me lam mona man po na overthinker BF mo dat pag nang iiwal nilalambing pag tatapos🥺 want ko man lang ma baby mo eh pero okay lang ito aram ko man naarog moko kato ta lovelovee mo ako ehh🥺🥺 iloveyouuuu always myloveee hehehehe ako lang bebii mo ahh hehehehe mwuaaaaaa mwuaaaaa mwuaaaapss HAPPY ANNIVERSARY mylovieeeee🫶🫶🥺🫶
-dae kana masuya ahh polongo lang love mo patalon lang hahaha iloveyouuuu mag paka happy po ika now na aldaw  ta and ini lang kaya kong matao saimo eh mayu ako pambakal flowers ma buy kuta ko subagong flowers eg kinsi na lang palan samagtak ko🥺 pag igwa na talaga ako sspoilon takang maray loveloveeee hehehehe mwuaaaaaa 🥺 wish ko lang sana kita na hanggang dulo iloveyouuuu 🥺 🫶 
-
-- pinaka poging(eme) naging bata mo Jay Roldan 
       </p>
 
-      <!-- SLIDESHOW START -->
       <div class="slideshow">
-        <!-- ADD YOUR PHOTOS HERE -->
         <img class="slide active" src="1.jpg">
         <img class="slide" src="2.jpg">
         <img class="slide" src="3.jpg">
@@ -113,22 +126,12 @@ dae kana masuya ahh polongo lang love mo patalon lang hahaha iloveyouuuu mag pak
         <img class="slide" src="8.jpg">
         <img class="slide" src="9.jpg">
         <img class="slide" src="10.jpg">
-        <img class="slide" src="11.jpg">
-        <img class="slide" src="12.jpg">
-        <img class="slide" src="13.jpg">
-        <img class="slide" src="14.jpg">
-        <img class="slide" src="15.jpg">
-        <img class="slide" src="16.jpg">
-        <img class="slide" src="17.jpg">
-        <img class="slide" src="18.jpg">
-        
       </div>
 
       <div class="controls">
         <button onclick="prevSlide()">⏮</button>
         <button onclick="nextSlide()">⏭</button>
       </div>
-      <!-- SLIDESHOW END -->
 
     </div>
   </div>
@@ -138,7 +141,6 @@ dae kana masuya ahh polongo lang love mo patalon lang hahaha iloveyouuuu mag pak
       document.getElementById("surprise").style.display = "block";
     }
 
-    // Anniversary Timer
     const startDate = new Date("March 24, 2024 00:00:00");
 
     function updateTimer() {
@@ -151,13 +153,12 @@ dae kana masuya ahh polongo lang love mo patalon lang hahaha iloveyouuuu mag pak
       const seconds = Math.floor((diff / 1000) % 60);
 
       document.getElementById("timer").innerText =
-        `We have been together for ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds 💞`;
+        `We have been together for ${days} days, ${hours}h ${minutes}m ${seconds}s 💞`;
     }
 
     setInterval(updateTimer, 1000);
     updateTimer();
 
-    // SLIDESHOW SCRIPT
     let currentSlide = 0;
     const slides = document.getElementsByClassName("slide");
 
@@ -178,7 +179,6 @@ dae kana masuya ahh polongo lang love mo patalon lang hahaha iloveyouuuu mag pak
       showSlide(currentSlide);
     }
 
-    // AUTO PLAY (every 3 seconds)
     setInterval(nextSlide, 3000);
   </script>
 

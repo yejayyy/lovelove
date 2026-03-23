@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Anniversary ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+      color: #fff;
+      text-align: center;
+    }
+
+    .container {
+      padding: 50px 20px;
+    }
+
+    h1 { font-size: 3em; margin-bottom: 10px; }
+    h2 { font-size: 1.5em; margin-bottom: 20px; }
+
+    p {
+      font-size: 1.3em;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+
+    .heart {
+      font-size: 50px;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1em;
+      border: none;
+      border-radius: 25px;
+      background: #fff;
+      color: #ff6b81;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 10px;
+    }
+
+    button:hover {
+      background: #ff6b81;
+      color: #fff;
+    }
+
+    .hidden { display: none; margin-top: 20px; font-size: 1.2em; }
+
+    .timer { font-size: 1.2em; margin-top: 15px; }
+
+    /* SLIDESHOW */
+    .slideshow {
+      position: relative;
+      max-width: 300px;
+      margin: 20px auto;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    .active { display: block; }
+
+    .controls {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="heart">❤️</div>
+
+    <h1>Happy Anniversary!</h1>
+    <h2>Pompom Ko❤️</h2>
+
+    <p>
+      Since March 24, 2024, our journey has been filled with love, laughter, and unforgettable memories.
+      Every day with you feels like a blessing I never want to lose.
+    </p>
+
+    <div class="timer" id="timer"></div>
+
+    <button onclick="showMessage()">Open My Message 💌</button>
+
+    <div id="surprise" class="hidden">
+      <p>
+       hi lovieeee🥺 imissyouuuu 🥺 misss na misss taka na sobraaaa dawa nahiling taka palang huhuhu happy monthsarry este happy 2nd anniversary lovieeeeeee ko iknow napapagal ika sako saka na iirita pero oks lang pasalihon lang me hehehe want ko saaga lovelovebann us ahh monthsarry taman and want ko sako kalang iloveyouuuu sobraaa aram mo yan and want ko mag enjoy us no more war lovieeee ahhh MWUAAAAAA MWUAAAAA ILOVEYOUUUU ALWAYSSS MYLOVIEEEE MY POMPOM 🥺🫶 sorry po ta binadtrip taka minsan heheheh sorry nasuya taka nanaman po loveloveeee subago iloveyouuuu 🥺 and kang naka aging aldaw iniwal mo me lam mona man po na overthinker BF mo dat pag nang iiwal nilalambing pag tatapos🥺 want ko man lang ma baby mo eh pero okay lang ito aram ko man naarog moko kato ta lovelovee mo ako ehh🥺🥺 iloveyouuuu always myloveee hehehehe ako lang bebii mo ahh hehehehe mwuaaaaaa mwuaaaaa mwuaaaapss HAPPY ANNIVERSARY mylovieeeee🫶🫶🥺🫶
+dae kana masuya ahh polongo lang love mo patalon lang hahaha iloveyouuuu mag paka happy po ika now na aldaw  ta and ini lang kaya kong matao saimo eh mayu ako pambakal flowers ma buy kuta ko subagong flowers eg kinsi na lang palan samagtak ko🥺 pag igwa na talaga ako sspoilon takang maray loveloveeee hehehehe mwuaaaaaa 🥺 wish ko lang sana kita na hanggang dulo iloveyouuuu 🥺 🫶 
+
+- pinaka poging(eme) naging bata mo Jay Roldan 
+      </p>
+
+      <!-- SLIDESHOW START -->
+      <div class="slideshow">
+        <!-- ADD YOUR PHOTOS HERE -->
+        <img class="slide active" src="1.jpg">
+        <img class="slide" src="2.jpg">
+        <img class="slide" src="3.jpg">
+        <img class="slide" src="4.jpg">
+        <img class="slide" src="5.jpg">
+        <img class="slide" src="6.jpg">
+        <img class="slide" src="7.jpg">
+        <img class="slide" src="8.jpg">
+        <img class="slide" src="9.jpg">
+        <img class="slide" src="10.jpg">
+        <img class="slide" src="11.jpg">
+        <img class="slide" src="12.jpg">
+        <img class="slide" src="13.jpg">
+        <img class="slide" src="14.jpg">
+        <img class="slide" src="15.jpg">
+        <img class="slide" src="16.jpg">
+        <img class="slide" src="17.jpg">
+        <img class="slide" src="18.jpg">
+        
+      </div>
+
+      <div class="controls">
+        <button onclick="prevSlide()">⏮</button>
+        <button onclick="nextSlide()">⏭</button>
+      </div>
+      <!-- SLIDESHOW END -->
+
+    </div>
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("surprise").style.display = "block";
+    }
+
+    // Anniversary Timer
+    const startDate = new Date("March 24, 2024 00:00:00");
+
+    function updateTimer() {
+      const now = new Date();
+      const diff = now - startDate;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("timer").innerText =
+        `We have been together for ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds 💞`;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    // SLIDESHOW SCRIPT
+    let currentSlide = 0;
+    const slides = document.getElementsByClassName("slide");
+
+    function showSlide(index) {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+      }
+      slides[index].classList.add("active");
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    // AUTO PLAY (every 3 seconds)
+    setInterval(nextSlide, 3000);
+  </script>
+
+</body>
+</html>
